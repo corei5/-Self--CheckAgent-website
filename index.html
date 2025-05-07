@@ -262,107 +262,107 @@ Teaser video section commented out
 
 
 
-<style>
-  .styled-table {
-    border-collapse: collapse;
-    margin: 20px auto;
-    font-size: 13px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 98%;
-    max-width: 1600px;
-    table-layout: fixed;
-    word-wrap: break-word;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
 
-  .styled-table th, .styled-table td {
-    border: 1px solid #ddd;
-    padding: 6px;
-    text-align: center;
-    vertical-align: middle;
-  }
 
-  .styled-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-
-  .styled-table caption {
-    caption-side: bottom;
-    font-style: italic;
-    padding-top: 8px;
-    font-size: 12px;
-    color: #666;
-  }
-
-  .styled-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  @media screen and (max-width: 768px) {
-    .styled-table {
-      font-size: 11px;
-    }
-  }
-</style>
-
-<table class="styled-table">
-  <caption>Consolidated comparison of methods, LLMs, sizes, and prompting for the WikiBio and AIME datasets. Metrics include NonFactual (AUC-PR), Factual (AUC-PR), and Ranking scores (PCC). Zero-shot (ZS) prompting, Chain-of-Thought (CoT) prompting.</caption>
-  <thead>
-    <tr>
-      <th rowspan="2">System</th>
-      <th rowspan="2">Method</th>
-      <th rowspan="2">LLM</th>
-      <th rowspan="2">Size</th>
-      <th rowspan="2">Prompt</th>
-      <th colspan="3">WikiBio Dataset</th>
-      <th colspan="3">AIME Dataset</th>
-    </tr>
-    <tr>
-      <th>NonFact</th>
-      <th>Factual</th>
-      <th>Ranking</th>
-      <th>NonFact</th>
-      <th>Factual</th>
-      <th>Ranking</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><em>Semantic Agent</em></td><td>Semantic Unigram</td><td>-</td><td>-</td><td>-</td><td><strong>86.97</strong></td><td><strong>59.02</strong></td><td><strong>65.88</strong></td><td><strong>87.24</strong></td><td><strong>14.62</strong></td><td><strong>11.94</strong></td></tr>
-    <tr><td><em>SelfCheckGPT</em></td><td>Unigram</td><td>-</td><td>-</td><td>-</td><td>85.63</td><td>58.47</td><td>64.71</td><td>85.69</td><td>14.91</td><td>-</td></tr>
-
-    <tr><td rowspan="6"><em>Specialized Detection Agent</em></td><td rowspan="6">Pre-trained</td><td>Phi-3</td><td>3.8B</td><td>ZS</td><td><strong>89.27</strong></td><td><strong>56.26</strong></td><td><strong>61.88</strong></td><td>90.34</td><td>19.16</td><td>12.75</td></tr>
-    <tr><td>Llama 3.1</td><td>8B</td><td>ZS</td><td>78.90</td><td>37.12</td><td>34.25</td><td>87.76</td><td>21.10</td><td>3.16</td></tr>
-    <tr><td>Mistral</td><td>7B</td><td>ZS</td><td>86.13</td><td>58.60</td><td>41.15</td><td>91.33</td><td>17.11</td><td>2.57</td></tr>
-    <tr><td>Gemma</td><td>7B</td><td>ZS</td><td>75.41</td><td>30.87</td><td>4.80</td><td><strong>93.38</strong></td><td><strong>20.38</strong></td><td><strong>21.76</strong></td></tr>
-    <tr><td>Roberta-large</td><td>340M</td><td>ZS</td><td>76.44</td><td>31.20</td><td>6.07</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr><td>Phi-3</td><td>3.8B</td><td>CoT</td><td>75.08</td><td>29.67</td><td>13.79</td><td><strong>87.76</strong></td><td><strong>21.10</strong></td><td><strong>3.16</strong></td></tr>
-
-    <tr><td rowspan="5"><em>Specialized Detection Agent</em></td><td rowspan="5">Pre-trained (cont'd)</td><td>Llama 3.1</td><td>8B</td><td>CoT</td><td>63.88</td><td>21.75</td><td>-</td><td>85.33</td><td>13.13</td><td>-</td></tr>
-    <tr><td>Mistral</td><td>7B</td><td>CoT</td><td><strong>81.91</strong></td><td><strong>46.10</strong></td><td><strong>43.49</strong></td><td>91.33</td><td>17.11</td><td>2.57</td></tr>
-    <tr><td>Gemma</td><td>7B</td><td>CoT</td><td>70.97</td><td>25.99</td><td>-</td><td>90.07</td><td>13.00</td><td>0.50</td></tr>
-    <tr><td>Roberta-large</td><td>340M</td><td>CoT</td><td>73.86</td><td>31.47</td><td>13.02</td><td>-</td><td>-</td><td>-</td></tr>
-
-    <tr><td rowspan="4"><em>Specialized Detection Agent</em></td><td rowspan="4">Fine-tuned</td><td>Phi-3</td><td>3.8B</td><td>-</td><td>92.87</td><td>65.25</td><td>73.54</td><td><strong>93.38</strong></td><td><strong>20.38</strong></td><td><strong>21.76</strong></td></tr>
-    <tr><td>Llama 3.1</td><td>8B</td><td>-</td><td>76.85</td><td>29.71</td><td>8.91</td><td>79.63</td><td>9.74</td><td>-</td></tr>
-    <tr><td>Mistral</td><td>7B</td><td>-</td><td><strong>92.68</strong></td><td><strong>67.10</strong></td><td><strong>75.63</strong></td><td>92.91</td><td>17.37</td><td>20.05</td></tr>
-    <tr><td>Gemma</td><td>7B</td><td>-</td><td>83.47</td><td>43.12</td><td>50.98</td><td>82.58</td><td>10.70</td><td>-</td></tr>
-
-    <tr><td><em>SelfCheckGPT</em></td><td>Fine-tuned</td><td>DeBERTa-v3</td><td>-</td><td>-</td><td>92.50</td><td>66.08</td><td>74.14</td><td>87.64</td><td>17.45</td><td>5.32</td></tr>
-
-    <tr><td rowspan="2"><em>Contextual Agent</em></td><td>Prompt based</td><td>Llama 3.1</td><td>8B</td><td>ZS</td><td>92.85</td><td>70.73</td><td>76.54</td><td>94.79</td><td>37.75</td><td>29.67</td></tr>
-    <tr><td>Prompt based</td><td>gpt4o</td><td>-</td><td>ZS</td><td>94.00</td><td>74.11</td><td>77.48</td><td>93.93</td><td>24.26</td><td>21.13</td></tr>
-
-    <tr><td rowspan="4"><em>Consistency Agent</em></td><td>Prompt based</td><td>Mistral</td><td>7B</td><td>CoT</td><td>91.74</td><td>64.01</td><td>75.40</td><td>93.63</td><td>37.98</td><td>22.51</td></tr>
-    <tr><td>Prompt based</td><td>Llama 3.1</td><td>8B</td><td>CoT</td><td><strong>93.64</strong></td><td><strong>70.26</strong></td><td><strong>78.48</strong></td><td>91.77</td><td>24.89</td><td>14.23</td></tr>
-    <tr><td>Prompt based</td><td>gpt3.5</td><td>-</td><td>CoT</td><td>90.59</td><td>62.11</td><td>72.17</td><td>95.28</td><td>57.62</td><td>25.42</td></tr>
-    <tr><td>Prompt based</td><td>gpt4o</td><td>-</td><td>CoT</td><td>94.14</td><td>74.95</td><td>76.33</td><td><strong>94.89</strong></td><td><strong>30.58</strong></td><td><strong>30.68</strong></td></tr>
-
-    <tr><td rowspan="2"><em>SelfCheckGPT</em></td><td>Prompt based</td><td>Mistral</td><td>7B</td><td>ZS</td><td>91.31</td><td>62.76</td><td>74.46</td><td>92.15</td><td>45.31</td><td>17.19</td></tr>
-    <tr><td>Prompt based</td><td>gpt3.5</td><td>-</td><td>ZS</td><td>93.42</td><td>67.09</td><td>78.32</td><td>95.66</td><td>56.95</td><td>30.08</td></tr>
-  </tbody>
+  <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+    <thead>
+        <tr>
+            <th rowspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">System</th>
+            <th rowspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Method</th>
+            <th rowspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">LLM</th>
+            <th rowspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Size</th>
+            <th rowspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Prompt</th>
+            <th colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">WikiBio Dataset</th>
+            <th colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">AIME Dataset</th>
+        </tr>
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">NonFact</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Factual</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Ranking</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">NonFact</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Factual</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #f4f4f4; font-weight: bold;">Ranking</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f9f9f9;">
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><i>Semantic Agent</i></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Semantic Unigram</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>86.97</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>59.02</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>65.88</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>87.24</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>14.62</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>11.94</b></td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><i>SelfCheckGPT</i></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Unigram</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">85.63</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">58.47</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">64.71</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">85.69</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">14.91</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><i>Specialized Detection Agent</i></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Pre-trained</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Phi-3</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">3.8B</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">ZS</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>89.27</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>56.26</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>61.88</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">90.34</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">19.16</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">12.75</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Llama 3.1</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">8B</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">ZS</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">78.90</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">37.12</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">34.25</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">87.76</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">21.10</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">3.16</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Mistral</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">7B</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">ZS</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">86.13</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">58.60</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">41.15</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">91.33</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">17.11</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">2.57</td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">-</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Gemma</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">7B</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">ZS</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">75.41</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">30.87</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">4.80</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>93.38</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>20.38</b></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;"><b>21.76</b></td>
+        </tr>
+        <!-- Additional rows can be added similarly -->
+    </tbody>
 </table>
-
 
   
 
